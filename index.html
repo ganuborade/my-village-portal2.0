@@ -4,494 +4,253 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>गोटेगाव ग्रामपोर्टल</title>
-
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="src/styles/style.css" rel="stylesheet">
-    <script src="src/scripts/script.js"></script>
-    <meta name="description" content="गोटेगाव ग्रामपोर्टल - गोटेगाव गावाची माहिती, योजना, मंदिर, शिक्षण, लोकसंख्या व अधिक. गोटेगाव बद्दल सर्व माहिती एका ठिकाणी.">
+    <script src="src/scripts/script.js" defer></script>
+    <meta name="description" content="गोटेगाव ग्रामपोर्टल - गावाची माहिती, योजना, मंदिर, शिक्षण, लोकसंख्या आणि आपत्कालीन सेवा एका आधुनिक पानावर.">
     <meta name="keywords" content="गोटेगाव, ग्रामपोर्टल, गोटेगाव माहिती, गोटेगाव योजना, गोटेगाव मंदिर, गोटेगाव शिक्षण, गोटेगाव लोकसंख्या">
     <meta name="author" content="My Village Team">
     <link rel="shortcut icon" href="public/images/favicon.ico" type="image/x-icon">
-    <style>
-        :root {
-            --primary:    #2e7d32;
-            --primary-dk: #1b5e20;
-            --accent:     #ff8f00;
-            --bg:         #f9fdf9;
-            --card-bg:    #ffffff;
-            --text:       #1a1a1a;
-            --muted:      #5a6a5a;
-            --border:     #c8e6c9;
-        }
-
-        [data-theme="dark"] {
-            --primary:    #66bb6a;
-            --primary-dk: #388e3c;
-            --accent:     #ffb300;
-            --bg:         #121212;
-            --card-bg:    #1e1e1e;
-            --text:       #e8f5e9;
-            --muted:      #a5c9a5;
-            --border:     #2e7d32;
-        }
-
-        body {
-            font-family: 'Mukta', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            transition: background 0.3s, color 0.3s;
-            padding-top: 110px; 
-        }
-        
-
-        /* ── NAVBAR ── */
-        .navbar {
-            background: linear-gradient(135deg, var(--primary-dk), var(--primary)) !important;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
-        }
-        .navbar-brand {
-            font-family: 'Tiro Devanagari Marathi', serif;
-            font-size: 1.3rem;
-            color: #fff !important;
-        }
-        .navbar-nav .nav-link {
-            color: rgba(255,255,255,0.9) !important;
-            font-size: 0.9rem;
-            padding: 0.4rem 0.7rem;
-            border-radius: 6px;
-            transition: background 0.2s;
-        }
-        .navbar-nav .nav-link:hover { background: rgba(255,255,255,0.15); }
-        .navbar-toggler { border-color: rgba(255,255,255,0.4); }
-        .navbar-toggler-icon { filter: invert(1); }
-
-        
-         .announcement marquee { letter-spacing: 0.02em; } */
-
-        /* ── SECTION ── */
-        .section {
-            padding: 60px 0 40px;
-            border-bottom: 1px solid var(--border);
-        }
-        .section-title {
-            font-family: 'Tiro Devanagari Marathi', serif;
-            font-size: 1.7rem;
-            color: var(--primary);
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid var(--accent);
-            display: inline-block;
-        }
-        .section img.hero-img {
-            width: 100%;
-            border-radius: 16px;
-            max-height: 400px;
-            object-fit: cover;
-            margin-bottom: 24px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-        }
-
-        /* ── CARDS ── */
-        .village-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            overflow: hidden;
-            transition: transform 0.25s, box-shadow 0.25s;
-            height: 100%;
-        }
-        .village-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(46,125,50,0.18);
-        }
-        .village-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-        .village-card .card-body { padding: 16px; }
-        .village-card .card-title { color: var(--primary); font-weight: 700; font-size: 1rem; }
-        .village-card .card-text { font-size: 0.88rem; color: var(--muted); }
-
-        /* ── INFO CARDS ── */
-        .info-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 20px;
-            height: 100%;
-        }
-        .info-card h5 { color: var(--primary); font-weight: 700; margin-bottom: 12px; }
-        .info-card p, .info-card li { font-size: 0.92rem; color: var(--muted); }
-
-        /* ── STAT BOXES ── */
-        .stat-box {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dk));
-            color: #fff;
-            border-radius: 14px;
-            padding: 24px 16px;
-            text-align: center;
-        }
-        .stat-box h3 { font-size: 0.9rem; opacity: 0.85; margin-bottom: 8px; }
-        .stat-box p { font-size: 2rem; font-weight: 700; margin: 0; }
-
-        /* ── CALL BTN ── */
-        .call-btn {
-            display: inline-block;
-            background: var(--primary);
-            color: #fff !important;
-            border-radius: 8px;
-            padding: 6px 16px;
-            font-size: 0.85rem;
-            text-decoration: none;
-            margin-top: 8px;
-            transition: background 0.2s;
-        }
-        .call-btn:hover { background: var(--primary-dk); }
-
-        /* ── SCHEME BOXES ── */
-        .scheme-box {
-            background: var(--card-bg);
-            border-left: 4px solid var(--primary);
-            border-radius: 10px;
-            padding: 16px 20px;
-            margin-bottom: 14px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .scheme-box h6 { color: var(--primary); font-weight: 700; }
-        .scheme-box a {
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-decoration: none;
-        }
-        .scheme-category h5 { color: var(--primary-dk); font-weight: 700; margin: 24px 0 12px; }
-
-        /* ── FAQ ── */
-        .faq-question {
-            background: var(--primary);
-            color: #fff;
-            padding: 10px 16px;
-            border-radius: 8px 8px 0 0;
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-        }
-        .faq-answer {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-top: none;
-            padding: 10px 16px;
-            border-radius: 0 0 8px 8px;
-            font-size: 0.9rem;
-            color: var(--muted);
-            margin-bottom: 10px;
-        }
-
-        /* ── GALLERY ── */
-        .gallery-img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-        .gallery-img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        /* ── MAP ── */
-        .map-box { border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
-
-        /* ── CAREER ── */
-        .career-item {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 14px;
-        }
-        .career-question {
-            background: var(--primary);
-            color: #fff;
-            padding: 12px 18px;
-            font-weight: 700;
-        }
-        .career-answer { padding: 14px 18px; font-size: 0.9rem; color: var(--muted); }
-        .career-answer ul { margin: 0; padding-left: 20px; }
-        .career-answer li { padding: 3px 0; }
-
-        /* ── EMERGENCY ── */
-        .emergency-number {
-            background: #b71c1c;
-            color: #fff;
-            border-radius: 10px;
-            padding: 10px 16px;
-            margin: 6px 0;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        /* ── NOTE ── */
-        .note {
-            background: #fff8e1;
-            border-left: 4px solid var(--accent);
-            padding: 10px 16px;
-            border-radius: 0 8px 8px 0;
-            font-size: 0.88rem;
-            color: #795548;
-            margin-top: 16px;
-        }
-
-        /* ── FOOTER ── */
-        footer {
-            background: linear-gradient(135deg, var(--primary-dk), var(--primary));
-            color: #fff;
-            text-align: center;
-            padding: 70px;
-        }
-
-        /* ── THEME TOGGLE ── */
-        #themeBtn {
-            background: rgba(255,255,255,0.2);
-            border: 1px solid rgba(255,255,255,0.4);
-            color: #fff;
-            border-radius: 8px;
-            padding: 5px 10px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        #themeBtn:hover { background: rgba(255,255,255,0.35); }
-
-        /* ── HERO SECTION ── */
-        .hero-section {
-            background: linear-gradient(135deg, var(--primary-dk) 0%, var(--primary) 60%, #81c784 100%);
-            color: #fff;
-            padding: 60px 0 50px;
-            text-align: center;
-        }
-        .hero-section h1 {
-            font-family: 'Tiro Devanagari Marathi', serif;
-            font-size: clamp(1.6rem, 4vw, 2.8rem);
-            text-shadow: 0 2px 8px rgba(0,0,0,0.25);
-        }
-        .hero-section p { font-size: 1rem; opacity: 0.92; max-width: 750px; margin: auto; }
-
-        @media (max-width: 576px) {
-            .stat-box p { font-size: 1.5rem; }
-            .gallery-img { height: 120px; }
-        }
-
-        .announcement-text {
-            white-space: nowrap;
-            overflow-x: auto;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .announcement-text {
-                font-size: 0.8rem;
-            }
-        }
-    </style>
 </head>
 
 <body>
-
-<!-- ══════════════ NAVBAR ══════════════ -->
-<nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#home">🏡 गोटेगाव ग्रामपोर्टल</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navMenu">
-            <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
-                <li class="nav-item"><a class="nav-link" href="index.html">मुख्यपृष्ठ </a></li>
-                <li class="nav-item"><a class="nav-link" href="student-career.html">विद्यार्थी मार्गदर्शन</a></li>
-                <li class="nav-item"><a class="nav-link" href="temples.html">मंदिरे</a></li>
-                <li class="nav-item"><a class="nav-link" href="school.html">शिक्षण</a></li>
-                <li class="nav-item"><a class="nav-link" href="population.html">लोकसंख्या</a></li>
-                <li class="nav-item"><a class="nav-link" href="panchayat.html">ग्रामपंचायत</a></li>
-                <li class="nav-item"><a class="nav-link" href="faq.html"> प्रश्न (FAQ)</a></li>
-                <li class="nav-item"><a class="nav-link" href="emergency-services.html">आपत्कालीन सेवा</a></li>
-                <li class="nav-item"><a class="nav-link" href="village-schemes.html">योजना</a></li>
-                <li class="nav-item"><a class="nav-link" href="river.html">नदी</a></li>
-                <li class="nav-item"><a class="nav-link" href="gallery.html">गॅलरी</a></li>
-                <li class="nav-item"><a class="nav-link" href="sports.html">क्रीडा</a></li>
-                <li class="nav-item"><a class="nav-link" href="highauthority.html">उच्च अधिकारी</a></li>
-                <li class="nav-item"><a class="nav-link" href="government-schemes.html">शासकीय योजना</a></li>
-                <li class="nav-item"><a class="nav-link" href="tell-us.html">आम्हाला सांगा</a></li>
-                <li class="nav-item"><a class="nav-link" href="desclemer.html">नियम व अटी</a></li>
-                
-                <li class="nav-item">
-                    <button id="themeBtn" onclick="toggleTheme()">🌙</button>
-                </li>
-            </ul>
-        </div>
+    <div class="announcement">
+        <div class="announcement-text">⚡ ग्रामपोर्टल अपडेट • माहिती, योजना, मंदिर, शाळा, आरोग्य आणि आपत्कालीन सेवा एका पानावर • डार्क मोड उपलब्ध</div>
     </div>
-</nav>
 
-<!-- ══════════════ ANNOUNCEMENT ══════════════ -->
-
-<div class="announcement">
-    <div class="announcement-text">
-    <b> ⚠️प्रत्येक पेज च्या खालच्या बाजूस पर्याय दिलेले आहेत सर्व पर्यायांचा वापर करा -->ही वेबसाइट फक्त माहिती देण्यासाठी तयार केली आहे कोणतीही चूक किंवा नुकसानीसाठी आम्ही जबाबदार राहणार नाही-->डार्क मोड चा वापर करा .
-</b>   
-    </div>
-    
-</div>
-
-
-
-    <!-- ══════════════ HOME / HERO ══════════════ -->
-<section id="home" class="hero-section">
-    <div class="container">
-        <h1 class="mb-3">गोटेगाव: स्वाभिमान, संस्कार आणि समृद्धीचा संगम</h1>
-        <p class="lead">केज तालुका • बीड जिल्हा • महाराष्ट्र राज्य • भारत देश </p>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <img src="public/images/imggaon1.jpeg" alt="गोटेगाव गाव" class="hero-img">
-        <h2 class="section-title">📖 गोटेगाव बद्दल</h2>
-        <div class="row g-4">
-            <div class="col-md-6">
-                <p>बीड जिल्ह्यातील केज तालुक्यात वसलेले गोटेगाव हे आधुनिक प्रगती आणि समृद्ध परंपरेचा सुंदर संगम असलेले गाव आहे. कळंब-अंबाजोगाई रोड व राज्य महामार्गालगत वसलेले हे गाव आपल्या ऐतिहासिक, धार्मिक आणि सामाजिक वैशिष्ट्यांमुळे परिसरात वेगळी ओळख निर्माण करते.</p>
-                <p>गावाच्या प्रवेशद्वाराजवळ जिल्हा परिषद शाळेसमोर छत्रपती संभाजी महाराजांचा भव्य पुतळा उभारलेला असून तो गावाच्या स्वाभिमानाचे प्रतीक आहे. तसेच मथुरगिरी महाराज मठ संस्थान हे गावातील एकात्मता आणि श्रद्धेचे केंद्र आहे.</p>
-            </div>
-            <div class="col-md-6">
-                <p>ग्रामदैवत हनुमान मंदिर, तुळजाभवानी माता मंदिर आणि विठ्ठल-रुक्मिणी मंदिर ही प्रमुख धार्मिक स्थळे आहेत. खंडोबा यात्रा आणि गजानन महाराज पालखी सोहळा हे प्रमुख धार्मिक कार्यक्रम आहेत.</p>
-                <p>शिक्षणासाठी जिल्हा परिषद प्राथमिक शाळा आणि सम्राट अशोक विद्यालय उपलब्ध आहे. शेती हा मुख्य व्यवसाय असून सोयाबीन, कापूस आणि ऊस ही प्रमुख पिके घेतली जातात.</p>
-                <p>धनेगाव (मांजरा) धरण आणि केजडी नदी हे मुख्य जलस्रोत आहेत. धार्मिक सलोखा आणि विकासामुळे गोटेगाव हे एक आदर्श गाव आहे.</p>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">🏡 गोटेगाव ग्रामपोर्टल</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+                    <li class="nav-item"><a class="nav-link" href="#home">मुख्यपृष्ठ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">गावाबद्दल</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">सेवा</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#schemes">योजना</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">गॅलरी</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">संपर्क</a></li>
+                    <li class="nav-item">
+                        <button id="themeBtn" type="button" aria-label="Toggle theme">🌙</button>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-</section>
+    </nav>
 
-<!-- ══════════════ FINAL INFO ══════════════ -->
-<section id="final-info" class="section">
-    <div class="container">
-        <h2 class="section-title">📍 गोटेगाव - स्थान, सुविधा व माहिती</h2>
-        <div class="row g-4 mb-4">
-
-            <div class="col-sm-6 col-lg-3">
-                <div class="info-card">
-                    <h5>📌 गावाचा आढावा</h5>
-                    <p><strong>ग्रामपंचायत:</strong> गोटेगाव</p>
-                    <p><strong>तालुका:</strong> केज</p>
-                    <p><strong>जिल्हा:</strong> बीड</p>
-                    <p><strong>राज्य:</strong> महाराष्ट्र</p>
-                    <p><strong>पिनकोड:</strong> 431123</p>
-                    <p><strong>भौगोलिक क्षेत्र:</strong> 558.96 हेक्टर</p>
-                    <p><strong>जवळचे शहर:</strong> केज (13 किमी)</p>
-                    <p><strong>रेल्वे स्टेशन:</strong> कळंब रोड</p>
-                    <p><strong>विमानतळ:</strong> सोलापूर विमानतळ</p>
+    <main id="home">
+        <section class="hero-section">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <span class="hero-badge">केज तालुका • बीड जिल्हा</span>
+                    <h1>गोटेगाव: स्वाभिमान, संस्कार आणि समृद्धीचा संगम</h1>
+                    <p>धार्मिक सलोखा, शिस्तबद्ध शिक्षण, ग्रामीण विकास आणि modern digital experience यांचा एकाच ठिकाणी अनुभव.</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-light me-2 mb-2" href="#about">गावाची माहिती</a>
+                        <a class="btn btn-outline-light mb-2" href="#contact">तत्काळ संपर्क</a>
+                    </div>
+                    <div class="stat-grid">
+                        <div class="stat-box"><h3>गाव</h3><p>गोटेगाव</p></div>
+                        <div class="stat-box"><h3>तालुका</h3><p>केज</p></div>
+                        <div class="stat-box"><h3>जिल्हा</h3><p>बीड</p></div>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <img src="public/images/imggaon1.jpeg" alt="गोटेगावचे दृश्य">
                 </div>
             </div>
+        </section>
 
-            <div class="col-sm-6 col-lg-3">
-                <div class="info-card">
-                    <h5>🚗 प्रवास माहिती</h5>
-                    <p>केज पासून: 13 किमी (30-40 मिनिटे)</p>
-                    <p>बीड पासून: 72 किमी (~2.1 तास)</p>
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">गावाबद्दल</span>
+                    <h2>आधुनिक प्रगती आणि परंपरेचा सुंदर संगम</h2>
+                    <p>गोटेगाव हे केज तालुक्यातील एक प्रमुख ग्रामीण केंद्र आहे. येथे संस्कृती, शिक्षण, देवस्थाने आणि विकासकामांचा समतोल दिसतो.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-7">
+                        <div class="feature-card large-card">
+                            <h3>गावाची ओळख</h3>
+                            <p>गावाच्या प्रवेशद्वाराजवळ छत्रपती संभाजी महाराजांचा पुतळा, मथुरगिरी महाराज मठ संस्थान आणि प्रमुख मंदिरे यामुळे या गावाला सामाजिक आणि धार्मिक प्रतिष्ठा मिळाली आहे.</p>
+                            <p>तुळजाभवानी माता, हनुमान मंदिर आणि विठ्ठल-रुक्मिणी मंदिर या ठिकाणांकडे भाविक आणि स्थानिक लोकांचे आकर्षण आहे. खंडोबा यात्रा आणि गजानन महाराज पालखी सोहळा या उत्सवांचे विशेष महत्त्व आहे.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="info-stack">
+                            <div class="mini-card">
+                                <h4>📍 स्थान</h4>
+                                <p>तालुका: केज</p>
+                                <p>जिल्हा: बीड</p>
+                                <p>राज्य: महाराष्ट्र</p>
+                            </div>
+                            <div class="mini-card">
+                                <h4>🚗 पोहोचण्याची माहिती</h4>
+                                <p>केजपासून 13 किमी</p>
+                                <p>बीडपासून 72 किमी</p>
+                            </div>
+                            <div class="mini-card">
+                                <h4>💧 मुख्य स्रोत</h4>
+                                <p>धनेगाव धरण</p>
+                                <p>केजडी नदी</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="col-sm-6 col-lg-3">
-                <div class="info-card">
-                    <h5>🏦 बँकिंग व पोस्ट सेवा</h5>
-                    <ul>
-                        <li>बँक: उपलब्ध नाही (2-5 किमी)</li>
-                        <li>ATM: उपलब्ध नाही (2-5 किमी)</li>
-                        <li>पोस्ट ऑफिस: उपलब्ध नाही (2-5 किमी)</li>
-                    </ul>
+        <section id="services" class="section alt-section">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">मुख्य सेवा व माहिती</span>
+                    <h2>एकाच पानावर गांवाच्या सर्व महत्त्वाच्या बाबी</h2>
+                </div>
+                <div class="card-grid">
+                    <article class="feature-card">
+                        <h3>🛕 मंदिरे</h3>
+                        <p>हनुमान मंदिर, तुळजाभवानी माता मंदिर आणि विठ्ठल-रुक्मिणी मंदिर यासारख्या पवित्र ठिकाणांची माहिती.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>🎓 शिक्षण</h3>
+                        <p>जिल्हा परिषद शाळा, सम्राट अशोक विद्यालय आणि विद्यार्थी मार्गदर्शनाशी संबंधित माहिती.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>👨‍👩‍👧‍👦 लोकसंख्या</h3>
+                        <p>गावातील सामाजिक संरचना, लोकसंख्येचा आढावा आणि जीवनशैलीची माहिती.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>🏛️ ग्रामपंचायत</h3>
+                        <p>ग्रामपंचायत, विकास कामे, प्रशासन आणि स्थानिक निर्णय प्रक्रियांची माहिती.</p>
+                    </article>
                 </div>
             </div>
+        </section>
 
-            <div class="col-sm-6 col-lg-3">
-                <div class="info-card">
-                    <h5>🏥 आरोग्य सुविधा</h5>
-                    <ul>
-                        <li>HSC: उपलब्ध नाही (2-5 किमी)</li>
-                        <li>PHC: उपलब्ध नाही (2-5 किमी)</li>
-                        <li>CHC: उपलब्ध नाही (5-10 किमी)</li>
-                    </ul>
+        <section id="schemes" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">योजना आणि विकास</span>
+                    <h2>ग्रामीण प्रगतीसाठी चालू असलेल्या योजना</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="scheme-card">
+                            <h3>🌱 शेतकऱ्यांसाठी योजना</h3>
+                            <p>पाणीपुरवठा, शेतीसाठी तंत्रज्ञान, बियाणे आणि सिंचन सुविधा संबंधी माहिती.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="scheme-card">
+                            <h3>🏥 आरोग्य आणि सुरक्षितता</h3>
+                            <p>आपत्कालीन सेवा, प्राथमिक आरोग्य केंद्र, शाळा आणि सुरक्षित पाणीवापर यांची माहिती.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="scheme-card">
+                            <h3>📚 शिक्षण आणि कौशल्य</h3>
+                            <p>विद्यार्थ्यांसाठी मार्गदर्शन, शिष्यवृत्ती, व्यावसायिक प्रशिक्षण आणि नोकरीची माहिती.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="scheme-card">
+                            <h3>🌍 क्रीडा व संस्कृती</h3>
+                            <p>खेल, सांस्कृतिक उपक्रम आणि ग्रामीण सामूहिक कार्यक्रमांमधील सहभागाची माहिती.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
+        <section id="gallery" class="section alt-section">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">गॅलरी</span>
+                    <h2>गावाचे दृश्य, उत्सव आणि मातीची सुंदरता</h2>
+                </div>
+                <div class="gallery-grid">
+                    <img src="public/images/hanumantempleimg1.jpeg" alt="हनुमान मंदिर">
+                    <img src="public/images/tuljaimg1.jpg" alt="तुळजाभवानी मंदिर">
+                    <img src="public/images/khandobaimg1.jpeg" alt="खंडोबा यात्रा">
+                    <img src="public/images/roaddev1.jpg" alt="रस्त्याचे विकासकाम">
+                    <img src="public/images/river1.jpeg" alt="नदी आणि परिसर">
+                    <img src="public/images/ground1.jpeg" alt="मैदान">
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">FAQ</span>
+                    <h2>सामान्य प्रश्नांची उत्तरें</h2>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item active">
+                        <button class="faq-question" type="button">गोटेगावमध्ये कोणत्या प्रमुख धार्मिक स्थळांचा समावेश आहे?</button>
+                        <div class="faq-answer">हनुमान मंदिर, तुळजाभवानी माता मंदिर आणि विठ्ठल-रुक्मिणी मंदिर या प्रमुख ठिकाणांचा समावेश आहे.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">गावासाठी कोणती प्रमुख योजना उपलब्ध आहेत?</button>
+                        <div class="faq-answer">शेतकरी योजना, आरोग्य सुविधा, शिक्षण आणि कौशल्यविकास यांसारख्या विविध ग्रामीण प्रगती योजनांचा समावेश आहे.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">गावात पोहोचण्यासाठी कोणता मार्ग सर्वोत्तम आहे?</button>
+                        <div class="faq-answer">केज मार्गे पोहोचणे सोपे आहे. बीडकडून 72 किमी आणि केजकडून 13 किमी अंतर आहे.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section alt-section">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="contact-card">
+                            <h3>🚨 आपत्कालीन सेवा</h3>
+                            <div class="emergency-number">📞 100</div>
+                            <div class="emergency-number">🚑 108</div>
+                            <div class="emergency-number">👮 112</div>
+                            <p class="mt-3">आत्मीयता, आरोग्य आणि सुरक्षिततेसाठी या क्रमांकांचा वापर करा.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="contact-card">
+                            <h3>📩 तुमची माहीत आमच्याकडे पाठवा</h3>
+                            <form>
+                                <div class="mb-3">
+                                    <label class="form-label">नाव</label>
+                                    <input type="text" class="form-control" placeholder="तुमचे नाव">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">ई-मेल</label>
+                                    <input type="email" class="form-control" placeholder="your@email.com">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">संदेश</label>
+                                    <textarea class="form-control" rows="4" placeholder="गावाबाबत कोणतीही माहिती किंवा सूचना..."></textarea>
+                                </div>
+                                <button class="btn btn-success" type="button">पाठवा</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-title">गोटेगाव ग्रामपोर्टल</p>
+            <p>© 2026 My Village Team • सर्व हक्क राखीव</p>
         </div>
-<div class="map-box">
-    <iframe 
-        src="https://www.google.com/maps?q=18.6316895,76.0861671&z=17&output=embed"
-        width="100%" 
-        height="400" 
-        style="border:0;" 
-        loading="lazy">
-    </iframe>
-</div>
-    </div>
-</section>
+    </footer>
 
-<!-- ══════════════ FOOTER WITH NAV LINKS ══════════════ -->
-<footer id="footer">
-    <div class="container">
-
-        <!-- Footer Links -->
-        <div class="footer-links">
-            <a href="index.html">मुख्यपृष्ठ</a>
-            <a href="student-career.html">विद्यार्थी</a>
-            <a href="temples.html">मंदिरे</a>
-            <a href="school.html">शिक्षण</a>
-            <a href="population.html">लोकसंख्या</a>
-            <a href="panchayat.html">ग्रामपंचायत</a>
-            <a href="faq.html">FAQ</a>
-            <a href="emergency-services.html">आपत्कालीन</a>
-            <a href="village-schemes.html">योजना</a>
-            <a href="river.html">नदी</a>
-            <a href="gallery.html">गॅलरी</a>
-            <a href="sports.html">क्रीडा</a>
-            <a href="highauthority.html">अधिकारी</a>
-            <a href="government-schemes.html">शासकीय योजना</a>
-            <a href="tell-us.html">आम्हाला सांगा</a>
-            <a href="desclemer.html">नियम व अटी</a>
-        </div>
-
-        <!-- Bottom Text -->
-        <p class="footer-text">© 2026 My Village Team – All Rights Reserved</p>
-
-    </div>
-</footer>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const announcement = document.querySelector('.announcement');
-
-    let pos = window.innerWidth;
-
-    setInterval(() => {
-        pos -= 1;
-
-        if (pos < -announcement.offsetWidth) {
-            pos = window.innerWidth;
-        }
-
-        announcement.style.left = pos + "px";
-    }, 10);
-
-});
-</script>
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
